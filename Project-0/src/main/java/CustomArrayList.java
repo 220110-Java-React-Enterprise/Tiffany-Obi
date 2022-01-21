@@ -184,6 +184,9 @@ public class CustomArrayList<E> implements CustomListInterface<E>,Iterable<E> {
             tempArr.add((E) element);
         }
        }
+
+       this.clear();
+
         for(E e:tempArr){
             this.add(e);
         }
