@@ -1,42 +1,41 @@
 public class Customer {
-   private BankAccount bankAccount;
+   private String bankAccountNumber;
    private String firstName;
    private String lastName;
-   private String socialSecurityNo;
    private String customerId;
 
-   public Customer(){
-       bankAccount.checkingAccount = Float.valueOf(0);
-       bankAccount.savingsAccount = Float.valueOf(0);
-       firstName = "Customer 1";
-       lastName = "Temp Customer";
-       socialSecurityNo = "0000001";
-       customerId = "01";
+//   public Customer(){
+//       this.bankAccountNumber = "0001";
+//       this.firstName = "Customer 1";
+//       this.lastName = "Temp Customer";
+//       this.customerId = "01";
+//
+//   }
 
-   }
-
-   public Customer(BankAccount account,String firstName,String lastName,String socialSecurityNo,String customerId){
-       this.bankAccount = account;
+   public Customer(String firstName,String lastName,String customerId,String accountNumber){
+       this.bankAccountNumber = accountNumber;
        this.firstName = firstName;
        this.lastName = lastName;
-       this.socialSecurityNo = socialSecurityNo;
        this.customerId = customerId;
    }
 
-    public BankAccount getBankAccount() {
-        return bankAccount;
+    public String getBankAccount() {
+        return bankAccountNumber;
     }
 
-    public void setBankAccount(BankAccount bankAccount) {
-        this.bankAccount = bankAccount;
+    public void setBankAccount( String bankAccountNumber) {
+
+       this.bankAccountNumber = bankAccountNumber;
     }
 
     public String getFirstName() {
-        return firstName;
+
+       return firstName;
     }
 
     public void setFirstName(String firstName) {
-        this.firstName = firstName;
+
+       this.firstName = firstName;
     }
 
     public String getLastName() {
@@ -44,15 +43,8 @@ public class Customer {
     }
 
     public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
 
-    public String getSocialSecurityNo() {
-        return socialSecurityNo;
-    }
-
-    public void setSocialSecurityNo(String socialSecurityNo) {
-        this.socialSecurityNo = socialSecurityNo;
+       this.lastName = lastName;
     }
 
     public String getCustomerId() {
@@ -60,6 +52,7 @@ public class Customer {
     }
 
     public void setCustomerId(String customerId) {
-        this.customerId = customerId;
+
+       this.customerId = customerId;
     }
 }
