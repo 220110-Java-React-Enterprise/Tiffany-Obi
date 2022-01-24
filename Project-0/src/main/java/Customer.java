@@ -3,6 +3,7 @@ public class Customer {
    private String firstName;
    private String lastName;
    private String customerId;
+   private String username;
 
 //   public Customer(){
 //       this.bankAccountNumber = "0001";
