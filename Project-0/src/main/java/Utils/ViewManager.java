@@ -28,6 +28,7 @@ public class ViewManager {
     }
 
     public void registerView(View view){
+
         viewList.add(view);
     }
 
@@ -40,6 +41,7 @@ public class ViewManager {
     }
 
     public void renderView(){
+
         nextView.renderView();
     }
 

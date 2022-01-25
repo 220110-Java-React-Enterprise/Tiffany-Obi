@@ -14,7 +14,7 @@ public class MainView extends View {
     public void renderView() {
 
         System.out.println("======= M A I N   V I E W =======");
-        System.out.println("");
+        viewManager.quit();
 
     }
 }

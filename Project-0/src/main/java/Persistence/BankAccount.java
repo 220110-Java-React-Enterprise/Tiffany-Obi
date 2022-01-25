@@ -1,3 +1,5 @@
+package Persistence;
+
 public class BankAccount {
     private Integer customerId;
     private Float checkingBalance = 0.0F;
@@ -15,6 +17,9 @@ public class BankAccount {
 
     public void setCustomerId(Integer customerId) {
         this.customerId = customerId;
+    }
+    public Integer getCustomerId(){
+        return customerId;
     }
     public void setAccountId(Integer accountNumber){
         this.accountNumber = accountNumber;

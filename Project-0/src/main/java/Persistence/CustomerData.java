@@ -1,4 +1,7 @@
+package Persistence;
 
+import Persistence.Customer;
+import Persistence.DataSourceCRUD;
 import Utils.ConnectionManager;
 
 import java.sql.*;
@@ -12,26 +15,27 @@ public class CustomerData implements DataSourceCRUD<Customer> {
     }
 
     @Override
-    public Customer create(Customer cust) {
+    public Integer create(Customer cust) {
         // here we are inserting into the customer table that we created in db
         try {
-            String sql = "INSERT INTO customers (customer_id, first_name, last_name, account_id) VALUES(?,?,?,?)";
+            String sql = "INSERT INTO customers (first_name, last_name, user_name, email, password) VALUES(?,?,?,?,?)";
             PreparedStatement pstmt = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
-            pstmt.setInt(1,cust.getCustomerId());
-            pstmt.setString(2,cust.getFirstName());
-            pstmt.setString(3,cust.getLastName());
-            pstmt.setInt(4, cust.getBankAccount());
+            pstmt.setString(1,cust.getFirstName());
+            pstmt.setString(2,cust.getLastName());
+            pstmt.setString(3,cust.getUsername());
+            pstmt.setString(4, cust.getEmail());
+            pstmt.setString(5, cust.getPassword());
 
             pstmt.executeUpdate();
             ResultSet rs = pstmt.getGeneratedKeys();
             rs.next();
-            rs.getInt(1);
 
+            return rs.getInt(1);
         }catch (Exception e){
             e.printStackTrace();
         }
-        return null;
+        return -1;
     }
 
     @Override
@@ -65,7 +69,20 @@ public class CustomerData implements DataSourceCRUD<Customer> {
 
     @Override
     public Customer update(Customer cust) {
-        return null;
+
+        try {
+            String sql = "UPDATE customers SET account_id = ? WHERE customer_id = ?";
+            PreparedStatement pstmt = connection.prepareStatement(sql);
+
+            pstmt.setInt(1,cust.getBankAccount());
+            pstmt.setInt(2, cust.getCustomerId());
+
+            pstmt.executeUpdate();
+        } catch(Exception e){
+            e.printStackTrace();
+        }
+    return cust;
+
     }
 
     @Override
