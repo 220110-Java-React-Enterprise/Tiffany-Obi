@@ -1,3 +1,5 @@
+package Utils;
+
 public interface CustomListInterface<E>{
     //returning the size of the collection. We will need to maintain some int with the number of elements.
     int size();

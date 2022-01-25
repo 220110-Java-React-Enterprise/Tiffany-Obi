@@ -1,15 +1,26 @@
 public class BankAccount {
-
+    private Integer customerId;
     private Float checkingBalance = 0.0F;
-    private String accountNumber;
+    private Integer accountNumber;
 //    Float savingsAccount;
 
-    public BankAccount(String accountNumber, Float initialDeposit) {
-        this.accountNumber = accountNumber;
+    public BankAccount(){
+
+    }
+
+    public BankAccount(Float initialDeposit) {
+
         this.checkingBalance = initialDeposit;
     }
 
-    public String getAccountNumber(){
+    public void setCustomerId(Integer customerId) {
+        this.customerId = customerId;
+    }
+    public void setAccountId(Integer accountNumber){
+        this.accountNumber = accountNumber;
+    }
+
+    public Integer getAccountNumber(){
         return this.accountNumber;
     }
     public Float getCheckingBalance() {

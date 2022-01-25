@@ -1,3 +1,8 @@
+package Views;
+
+import Views.View;
+import Utils.ViewManager;
+
 public class MainView extends View {
 
     public MainView(){

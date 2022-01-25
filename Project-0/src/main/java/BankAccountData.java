@@ -1,5 +1,6 @@
+import Utils.ConnectionManager;
+
 import java.math.BigDecimal;
-import java.security.spec.ECField;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 
@@ -18,7 +19,7 @@ public class BankAccountData implements DataSourceCRUD<BankAccount>{
             String sql = "INSERT INTO accounts (account_id, balance) VALUES(?,?)";
             PreparedStatement pstmt = connection.prepareStatement(sql);
 
-            pstmt.setString(1,bankAccount.getAccountNumber());
+            pstmt.setInt(1,bankAccount.getAccountNumber());
             BigDecimal accountBalance = new BigDecimal(bankAccount.getCheckingBalance().toString());
             pstmt.setBigDecimal(2,accountBalance);
 
@@ -32,7 +33,7 @@ public class BankAccountData implements DataSourceCRUD<BankAccount>{
     }
 
     @Override
-    public BankAccount read(String id) {
+    public BankAccount read(Integer id) {
         return null;
     }
 

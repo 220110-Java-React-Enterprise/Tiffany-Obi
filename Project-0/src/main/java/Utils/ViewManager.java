@@ -1,3 +1,7 @@
+package Utils;
+
+import Views.View;
+
 import java.util.Scanner;
 
 
@@ -29,7 +33,7 @@ public class ViewManager {
 
     public void navigate(String destination){
         for(View view: viewList){
-            if(view.viewName.equals(destination)){
+            if(view.getViewName().equals(destination)){
                 nextView = view;
             }
         }

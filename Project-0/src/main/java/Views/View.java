@@ -1,3 +1,7 @@
+package Views;
+import Utils.ViewManager;
+
+
 public abstract class View {
     protected String viewName;
     protected ViewManager viewManager;

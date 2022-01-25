@@ -1,30 +1,26 @@
 public class Customer {
-   private String bankAccountNumber;
+   private Integer bankAccountNumber;
    private String firstName;
    private String lastName;
-   private String customerId;
+   private Integer customerId;
    private String username;
+   private  String password;
 
-//   public Customer(){
-//       this.bankAccountNumber = "0001";
-//       this.firstName = "Customer 1";
-//       this.lastName = "Temp Customer";
-//       this.customerId = "01";
-//
-//   }
+   public Customer(){
 
-   public Customer(String firstName,String lastName,String customerId,String accountNumber){
-       this.bankAccountNumber = accountNumber;
-       this.firstName = firstName;
-       this.lastName = lastName;
-       this.customerId = customerId;
    }
 
-    public String getBankAccount() {
+   public Customer(String firstName, String lastName){
+
+       this.firstName = firstName;
+       this.lastName = lastName;
+   }
+
+    public Integer getBankAccount() {
         return bankAccountNumber;
     }
 
-    public void setBankAccount( String bankAccountNumber) {
+    public void setBankAccount(Integer bankAccountNumber) {
 
        this.bankAccountNumber = bankAccountNumber;
     }
@@ -48,11 +44,11 @@ public class Customer {
        this.lastName = lastName;
     }
 
-    public String getCustomerId() {
+    public Integer getCustomerId() {
         return customerId;
     }
 
-    public void setCustomerId(String customerId) {
+    public void setCustomerId(Integer customerId) {
 
        this.customerId = customerId;
     }
