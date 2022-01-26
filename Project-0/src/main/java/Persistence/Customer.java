@@ -21,6 +21,12 @@ public class Customer {
        this.password = password;
    }
 
+    public Customer(String firstName,String username, Integer customerId){
+        this.firstName = firstName;
+        this.username = username;
+      this.customerId = customerId;
+    }
+
     public Integer getBankAccount() {
 
        return bankAccountNumber;

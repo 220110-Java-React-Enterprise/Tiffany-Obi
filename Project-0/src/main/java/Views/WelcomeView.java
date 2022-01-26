@@ -24,7 +24,6 @@ public class WelcomeView extends View {
 
         switch (readLine){
             case "1":
-                System.out.println("DEBUG: We made it into case 1");
                 viewManager.navigate("RegistrationView");
                 break;
             case "2":

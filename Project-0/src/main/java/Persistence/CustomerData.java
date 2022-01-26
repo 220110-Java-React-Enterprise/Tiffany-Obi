@@ -21,9 +21,9 @@ public class CustomerData implements DataSourceCRUD<Customer> {
             String sql = "INSERT INTO customers (first_name, last_name, user_name, email, password) VALUES(?,?,?,?,?)";
             PreparedStatement pstmt = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
-            pstmt.setString(1,cust.getFirstName());
-            pstmt.setString(2,cust.getLastName());
-            pstmt.setString(3,cust.getUsername());
+            pstmt.setString(1, cust.getFirstName());
+            pstmt.setString(2, cust.getLastName());
+            pstmt.setString(3, cust.getUsername());
             pstmt.setString(4, cust.getEmail());
             pstmt.setString(5, cust.getPassword());
 
@@ -32,7 +32,7 @@ public class CustomerData implements DataSourceCRUD<Customer> {
             rs.next();
 
             return rs.getInt(1);
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return -1;
@@ -40,17 +40,17 @@ public class CustomerData implements DataSourceCRUD<Customer> {
 
     @Override
     public Customer read(Integer id) {
-    // reading from the table based on the customer id
+        // reading from the table based on the customer id
         try {
             String sql = "SELECT * FROM customers WHERE customer_id = ?";
             PreparedStatement pstmt = connection.prepareStatement(sql);
-            pstmt.setInt(1,id);
+            pstmt.setInt(1, id);
 
             ResultSet rs = pstmt.executeQuery();
 
             Customer customer = new Customer();
 
-            while (rs.next()){
+            while (rs.next()) {
                 customer.setCustomerId(rs.getInt("customer_id"));
                 customer.setFirstName(rs.getString("first_name"));
                 customer.setLastName(rs.getString("last_name"));
@@ -74,19 +74,38 @@ public class CustomerData implements DataSourceCRUD<Customer> {
             String sql = "UPDATE customers SET account_id = ? WHERE customer_id = ?";
             PreparedStatement pstmt = connection.prepareStatement(sql);
 
-            pstmt.setInt(1,cust.getBankAccount());
+            pstmt.setInt(1, cust.getBankAccount());
             pstmt.setInt(2, cust.getCustomerId());
 
             pstmt.executeUpdate();
-        } catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
-    return cust;
+        return cust;
 
     }
 
     @Override
     public void delete(Integer id) {
 
+    }
+
+    public Customer checkLoginInfo(String username, String password) {
+        try {
+            String sql = "SELECT * FROM customers WHERE user_name = ?";
+            PreparedStatement pstmt = connection.prepareStatement(sql);
+            pstmt.setString(1,username);
+
+            ResultSet rs = pstmt.executeQuery();
+
+            if(rs.next() && rs.getString("password").equals(password)){
+                return new Customer(rs.getString("first_name"),
+                        rs.getString("user_name"),
+                        rs.getInt("customer_id"));
+            }
+        } catch (Exception e) {
+        e.printStackTrace();
+        }
+        return null;
     }
 }

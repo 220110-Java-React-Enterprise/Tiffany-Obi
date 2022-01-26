@@ -4,6 +4,7 @@ import Persistence.BankAccount;
 import Persistence.BankAccountData;
 import Persistence.Customer;
 import Persistence.CustomerData;
+import Utils.CurrentUser;
 import Utils.ViewManager;
 
 public class RegistrationView extends View{
@@ -57,6 +58,8 @@ public class RegistrationView extends View{
 
                 customer.setBankAccount(accountId);
                 custData.update(customer);
+
+                CurrentUser.setCurrentUser(customer);
 
                 viewManager.navigate("MainView");
                 break;

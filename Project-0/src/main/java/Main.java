@@ -13,6 +13,7 @@ public static void main(String[] args){
     viewManager.registerView(new LoginView());
     viewManager.registerView(new MainView());
     viewManager.registerView(new TransactionView());
+    viewManager.registerView(new CreateAccountView());
 
     try {
         Connection  conn = ConnectionManager.getConnection();
@@ -31,7 +32,7 @@ public static void main(String[] args){
 //    Persistence.CustomerData custRepo = new Persistence.CustomerData();
 //    Integer custID = custRepo.create(testCust);
 //
-//    CurrentUser currentUser = new CurrentUser(testCust.getFirstName());
+//    Utils.CurrentUser currentUser = new Utils.CurrentUser(testCust.getFirstName());
 //    testCust.setCustomerId(custID);
 //    currentUser.setCustomerId(custID);
 //

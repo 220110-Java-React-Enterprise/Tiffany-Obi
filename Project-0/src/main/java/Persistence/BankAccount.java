@@ -7,12 +7,17 @@ public class BankAccount {
 //    Float savingsAccount;
 
     public BankAccount(){
-
     }
 
     public BankAccount(Float initialDeposit) {
 
         this.checkingBalance = initialDeposit;
+    }
+
+    public BankAccount(Integer customerId, Float accountBalance, Integer accountNumber){
+        this.customerId = customerId;
+        this.checkingBalance = accountBalance;
+        this.accountNumber = accountNumber;
     }
 
     public void setCustomerId(Integer customerId) {
