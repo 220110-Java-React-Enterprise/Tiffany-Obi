@@ -44,12 +44,43 @@ public class BankAccountData implements DataSourceCRUD<BankAccount> {
 
     @Override
     public BankAccount read(Integer id) {
+        try {
+            String sql = "SELECT * FROM accounts WHERE account_id = ?";
+            PreparedStatement pstmt = connection.prepareStatement(sql);
+            pstmt.setInt(1,id);
+
+            ResultSet rs = pstmt.executeQuery();
+            BankAccount account = new BankAccount();
+
+            while (rs.next()){
+                account.setCheckingBalance(rs.getFloat("balance"));
+                account.setAccountId(rs.getInt("account_id"));
+            }
+            return account;
+
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+
         return null;
     }
 
     @Override
     public BankAccount update(BankAccount bankAccount) {
-        return null;
+        try {
+            String sql = "UPDATE accounts SET balance = ? WHERE account_id = ?";
+            PreparedStatement pstmt = connection.prepareStatement(sql);
+
+            BigDecimal accountBalance = new BigDecimal(bankAccount.getCheckingBalance());
+            pstmt.setBigDecimal(1, accountBalance);
+            pstmt.setInt(2,bankAccount.getAccountNumber());
+
+            pstmt.executeUpdate();
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return bankAccount;
     }
 
     @Override
@@ -69,7 +100,7 @@ public class BankAccountData implements DataSourceCRUD<BankAccount> {
             while (rs.next()) {
                 BankAccount account = new BankAccount(rs.getInt("customer_id"),
                         rs.getFloat("balance"),
-                        rs.getInt("customer_id"));
+                        rs.getInt("account_id"));
                 allAccounts.add(account);
             }
             return allAccounts;

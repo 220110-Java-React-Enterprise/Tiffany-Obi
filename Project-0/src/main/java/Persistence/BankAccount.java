@@ -1,16 +1,20 @@
 package Persistence;
 
+import Utils.CustomArrayList;
+
 public class BankAccount {
     private Integer customerId;
     private Float checkingBalance = 0.0F;
     private Integer accountNumber;
+
+
+//    private CustomArrayList<Integer> accounts = new CustomArrayList<>();
 //    Float savingsAccount;
 
     public BankAccount(){
     }
 
     public BankAccount(Float initialDeposit) {
-
         this.checkingBalance = initialDeposit;
     }
 
@@ -18,6 +22,10 @@ public class BankAccount {
         this.customerId = customerId;
         this.checkingBalance = accountBalance;
         this.accountNumber = accountNumber;
+    }
+    public BankAccount(Integer customerId, Float initialDeposit){
+        this.customerId = customerId;
+        this.checkingBalance = initialDeposit;
     }
 
     public void setCustomerId(Integer customerId) {
@@ -43,16 +51,19 @@ public class BankAccount {
     }
 
     public void deposit(Float deposit) {
+
         this.checkingBalance += deposit;
     }
 
-    public void withdraw(Float withdraw) throws Exception {
-        try {
-            if (withdraw < checkingBalance) {
-            checkingBalance += withdraw;
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
+    public boolean withdraw(Float withdraw){
+        if (withdraw < checkingBalance) {
+            checkingBalance -= withdraw;
+            return true;
+            } else {
+            return false;
         }
+
     }
+
+
 }
