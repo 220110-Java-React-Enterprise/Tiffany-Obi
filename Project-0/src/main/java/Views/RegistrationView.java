@@ -4,8 +4,11 @@ import Persistence.BankAccount;
 import Persistence.BankAccountData;
 import Persistence.Customer;
 import Persistence.CustomerData;
+import Utils.AuthClass;
 import Utils.CurrentUser;
 import Utils.ViewManager;
+
+
 
 public class RegistrationView extends View{
 
@@ -14,12 +17,19 @@ public class RegistrationView extends View{
         viewManager = ViewManager.getRenderer();
     }
 
+    AuthClass auth = new AuthClass();
 
 
     @Override
     public void renderView() {
         System.out.println("==== Please enter your email ====");
         String email = viewManager.getScanner().nextLine();
+
+        if(!auth.authenticateEmail(email)){
+            System.out.println("Sorry Invalid Email");
+            email = viewManager.getScanner().nextLine();
+        }
+
 
         System.out.println("==== Please choose a password ====");
         String password = viewManager.getScanner().nextLine();

@@ -37,7 +37,7 @@ public class TransactionView extends View {
 
             for(BankAccount account: accounts){
                 System.out.println("Account Number: "+ account.getAccountNumber() +
-                        "    Current Balance: " + account.getCheckingBalance());
+                        "    Current Balance: " + "$" + String.format("%.2f",account.getCheckingBalance()));
             }
 
             System.out.println("Enter the account number");
@@ -46,7 +46,7 @@ public class TransactionView extends View {
             viewManager.getScanner().nextLine();
 
             BankAccount selectedAccount = bankData.read(accountNumber);
-            System.out.println(selectedAccount.getAccountNumber() + " balance " + selectedAccount.getCheckingBalance());
+            System.out.println("Balance:  $" + String.format("%.2f",selectedAccount.getCheckingBalance()));
 
             System.out.println("HOW MUCH WOULD YOU LIKE TO DEPOSIT?");
             Float deposit = viewManager.getScanner().nextFloat();
@@ -75,7 +75,7 @@ public class TransactionView extends View {
 
             for(BankAccount account: accounts){
                 System.out.println("Account Number: "+ account.getAccountNumber() +
-                        "    Current Balance: " + account.getCheckingBalance());
+                        "    Current Balance: " + "$" + String.format("%.2f",account.getCheckingBalance()));
             }
 
             System.out.println("Enter the account number");
@@ -84,20 +84,27 @@ public class TransactionView extends View {
             viewManager.getScanner().nextLine();
 
             BankAccount selectedAccount = bankData.read(accountNumber);
-            System.out.println(selectedAccount.getAccountNumber() + " balance " + selectedAccount.getCheckingBalance());
+            System.out.println("Balance:  $" + String.format("%.2f",selectedAccount.getCheckingBalance()));
 
             System.out.println("HOW MUCH WOULD YOU LIKE TO WITHDRAW?");
             Float withdraw = viewManager.getScanner().nextFloat();
             viewManager.getScanner().nextLine();
 
-//            Float newBalance = (selectedAccount.getCheckingBalance()+deposit);
+
 
          if(selectedAccount.withdraw(withdraw)){
                 bankData.update(selectedAccount);
             } else {
-             System.out.println("INSUFFICIENT FUNDS! Try again");
-             renderView();
+             System.out.println("INSUFFICIENT FUNDS! Try again\n\n");
+             withdraw = viewManager.getScanner().nextFloat();
+             viewManager.getScanner().nextLine();
+
          }
+
+            System.out.println("***********************************");
+            System.out.println("************Withrawing*************");
+            System.out.println("***********************************");
+            System.out.println("============= S U C C E S S ===========");
 
          viewManager.navigate("MainView");
         } else {

@@ -55,6 +55,9 @@ public class MainView extends View {
                 break;
 
             case "5":
+                System.out.println("****************************");
+                System.out.println("*************Logging Out***************");
+                System.out.println("======= HAVE A GREAT DAY =======");
                 viewManager.quit();
 
 

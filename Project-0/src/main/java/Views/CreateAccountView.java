@@ -34,7 +34,7 @@ public class CreateAccountView extends View{
         System.out.println("****************************");
         System.out.println("****************************");
         System.out.println("****************************");
-        System.out.println("  HOW CAN WE HELP YOU TODAY? ");
+        System.out.println("-----------  NEXT STEPS ----------");
         System.out.println(
                         "1) Deposit Funds \n" +
                         "2) Withdraw Funds \n" +

@@ -26,7 +26,7 @@ public class AccountSummaryView extends View {
 
         for(BankAccount account: accounts){
             System.out.println("Account Number: "+ account.getAccountNumber() +
-                    "    Current Balance: " + String.format("%.2f",account.getCheckingBalance()));
+                    "    Current Balance: " + "$" +String.format("%.2f",account.getCheckingBalance()));
         }
 
         System.out.println("  HOW CAN WE HELP YOU TODAY? ");

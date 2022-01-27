@@ -28,30 +28,6 @@ public static void main(String[] args){
     }
 
 
-//
-//    Persistence.Customer testCust = new Persistence.Customer("Tiffany","Obi");
-//    Persistence.CustomerData custRepo = new Persistence.CustomerData();
-//    Integer custID = custRepo.create(testCust);
-//
-//    Utils.CurrentUser currentUser = new Utils.CurrentUser(testCust.getFirstName());
-//    testCust.setCustomerId(custID);
-//    currentUser.setCustomerId(custID);
-//
-//    Persistence.BankAccount testAccount = new Persistence.BankAccount(100.00F);
-//    testAccount.setCustomerId(custID);
-//    Persistence.BankAccountData accountRepo = new Persistence.BankAccountData();
-//    Integer bankAccountNum = accountRepo.create(testAccount);
-//    currentUser.setAccountId(bankAccountNum);
-//
-//    testCust.setBankAccount(bankAccountNum);
-//    System.out.println(testCust.getBankAccount());
-//
-//    if(testCust.getBankAccount() > 0){
-//        custRepo.update(testCust);
-//    } else {
-//        System.out.println("There is no value here");
-//    }
-
 
 
 
