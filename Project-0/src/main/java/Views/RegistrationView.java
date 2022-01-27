@@ -39,15 +39,22 @@ public class RegistrationView extends View{
         customer.setCustomerId(customerID);
 
         System.out.println("=== ALL SET! Please add a deposit to activate your account! ===");
-        System.out.println("=== Or enter 7 to set up your account later ===");
+        System.out.println("=== Or enter \"0\" to set up your account later ===");
 
         Float initialDeposit = viewManager.getScanner().nextFloat();
         viewManager.getScanner().nextLine();
 
 
-        if (initialDeposit == 7F) {
-            viewManager.navigate("LoginView");
-        } else {
+        while (initialDeposit < 0) {
+
+            System.out.println(" Invalid Amount! Let's try this again...");
+
+           initialDeposit = viewManager.getScanner().nextFloat();
+            viewManager.getScanner().nextLine();
+
+        }
+
+
             BankAccount bankAccount = new BankAccount(initialDeposit);
             bankAccount.setCustomerId(customerID);
             BankAccountData bankData = new BankAccountData();
@@ -63,4 +70,3 @@ public class RegistrationView extends View{
 
 
     }
-}

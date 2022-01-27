@@ -19,6 +19,7 @@ public class CreateAccountView extends View{
 
         System.out.println("=== ALL SET! Please add a deposit to activate your account! ===");
         Float initialDeposit = viewManager.getScanner().nextFloat();
+        viewManager.getScanner().nextLine();
 
         Customer currentUser = CurrentUser.getCurrentUser();
 
@@ -41,7 +42,7 @@ public class CreateAccountView extends View{
         );
 
 
-//        String selection = viewManager.getScanner().nextLine();
+
         String selection2 = viewManager.getScanner().nextLine();
 
 

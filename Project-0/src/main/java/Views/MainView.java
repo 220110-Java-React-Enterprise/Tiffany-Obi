@@ -28,7 +28,6 @@ public class MainView extends View {
                                 "5) Log Out \n"
                         );
 
-        Customer currentUser = CurrentUser.getCurrentUser();
 
 
         String selection2 = viewManager.getScanner().nextLine();

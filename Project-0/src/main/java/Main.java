@@ -12,8 +12,9 @@ public static void main(String[] args){
     viewManager.registerView(new RegistrationView());
     viewManager.registerView(new LoginView());
     viewManager.registerView(new MainView());
-    viewManager.registerView(new TransactionView());
     viewManager.registerView(new CreateAccountView());
+    viewManager.registerView(new AccountSummaryView());
+    viewManager.registerView(new TransactionView());
 
     try {
         Connection  conn = ConnectionManager.getConnection();
