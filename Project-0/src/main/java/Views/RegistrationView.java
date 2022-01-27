@@ -41,28 +41,24 @@ public class RegistrationView extends View{
         System.out.println("=== ALL SET! Please add a deposit to activate your account! ===");
         System.out.println("=== Or enter 7 to set up your account later ===");
 
-        Integer initialDeposit = viewManager.getScanner().nextInt();
+        Float initialDeposit = viewManager.getScanner().nextFloat();
+        viewManager.getScanner().nextLine();
 
 
-        switch (initialDeposit) {
+        if (initialDeposit == 7F) {
+            viewManager.navigate("LoginView");
+        } else {
+            BankAccount bankAccount = new BankAccount(initialDeposit);
+            bankAccount.setCustomerId(customerID);
+            BankAccountData bankData = new BankAccountData();
+            Integer accountId = bankData.create(bankAccount);
 
-            case 7:
-                viewManager.navigate("LoginView");
-                break;
+            customer.setBankAccount(accountId);
+            custData.update(customer);
 
-            default:
-                BankAccount bankAccount = new BankAccount(initialDeposit.floatValue());
-                bankAccount.setCustomerId(customerID);
-                BankAccountData bankData = new BankAccountData();
-                Integer accountId = bankData.create(bankAccount);
+            CurrentUser.setCurrentUser(customer);
 
-                customer.setBankAccount(accountId);
-                custData.update(customer);
-
-                CurrentUser.setCurrentUser(customer);
-
-                viewManager.navigate("MainView");
-                break;
+            viewManager.navigate("MainView");
         }
 
 
