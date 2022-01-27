@@ -15,6 +15,7 @@ public static void main(String[] args){
     viewManager.registerView(new CreateAccountView());
     viewManager.registerView(new AccountSummaryView());
     viewManager.registerView(new TransactionView());
+    viewManager.registerView(new TransferFundsView());
 
     try {
         Connection  conn = ConnectionManager.getConnection();

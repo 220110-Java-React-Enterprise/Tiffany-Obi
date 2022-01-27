@@ -23,9 +23,10 @@ public class MainView extends View {
         System.out.println(
                         "1) Open a New Account \n" + 
                         "2) View Accounts \n"+
-                        "3) Make a deposit into existing account \n" + 
-                        "4) Withdraw funds from existing \n" +
-                                "5) Log Out \n"
+                        "3) Make a Deposit into Existing Account \n" +
+                        "4) Withdraw Funds from Existing Account \n" +
+                                "5) Transfer Funds between Accounts \n" +
+                                "6) Log Out \n"
                         );
 
 
@@ -52,7 +53,13 @@ public class MainView extends View {
                 viewManager.navigate("TransactionView");
                 break;
 
+
             case "5":
+                viewManager.navigate("TransferFundsView");
+
+                break;
+
+            case "6":
                 System.out.println("***************************************");
                 System.out.println("*************Logging Out***************");
                 System.out.println("======= HAVE A GREAT DAY =======");
