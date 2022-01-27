@@ -14,6 +14,7 @@ public class AccountSummaryView extends View {
         viewName = "AccountSummaryView";
     }
 
+    //we are retrieving the users accounts and displaying it to the console
     @Override
     public void renderView() {
 

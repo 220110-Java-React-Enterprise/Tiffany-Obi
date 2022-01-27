@@ -19,6 +19,9 @@ public class RegistrationView extends View{
 
     AuthClass auth = new AuthClass();
 
+    //here a new user is able to create a new account and input info
+    //we are authenticating emails and names
+    //creating a bank account with and without funds
 
     @Override
     public void renderView() {

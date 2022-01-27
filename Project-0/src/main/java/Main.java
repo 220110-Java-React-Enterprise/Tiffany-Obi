@@ -4,6 +4,8 @@ import Views.*;
 
 import java.sql.Connection;
 
+//here we are registering our views and telling out program to run until prompted otherwise
+
 public class Main {
 public static void main(String[] args){
 

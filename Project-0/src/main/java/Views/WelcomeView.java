@@ -10,6 +10,8 @@ public class WelcomeView extends View {
     viewManager = ViewManager.getRenderer();
     }
 
+//welcomeeeeeeeeeeeee
+    //prompting a user to sign up or sign in!
 
     @Override
     public void renderView() {

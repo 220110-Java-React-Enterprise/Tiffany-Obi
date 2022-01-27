@@ -69,7 +69,7 @@ public class CustomerData implements DataSourceCRUD<Customer> {
 
     @Override
     public Customer update(Customer cust) {
-
+//here we are updating the database for a user to have their first accounts id
         try {
             String sql = "UPDATE customers SET account_id = ? WHERE customer_id = ?";
             PreparedStatement pstmt = connection.prepareStatement(sql);

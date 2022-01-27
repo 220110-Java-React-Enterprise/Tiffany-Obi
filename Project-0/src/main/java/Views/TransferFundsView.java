@@ -14,6 +14,9 @@ public class TransferFundsView extends View{
         viewManager = ViewManager.getRenderer();
     }
 
+    //users are able to transer funds between their accounds
+    // no negative balances
+
 
     @Override
     public void renderView() {

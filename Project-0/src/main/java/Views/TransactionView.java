@@ -15,6 +15,11 @@ public class TransactionView extends View {
         viewManager = ViewManager.getRenderer();
     }
 
+    //here users are able to deposit or withdraw funds
+    //from existing accounts
+    //only can withdraw what they have
+    //no negative balances
+
     @Override
     public void renderView() {
 

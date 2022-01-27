@@ -18,7 +18,7 @@ public class BankAccountData implements DataSourceCRUD<BankAccount> {
         connection = ConnectionManager.getConnection();
     }
 
-
+// here we create a new account for a user and send it to the database
     @Override
     public Integer create(BankAccount bankAccount) {
         try {
@@ -42,6 +42,7 @@ public class BankAccountData implements DataSourceCRUD<BankAccount> {
         return -1;
     }
 
+    //here we are retrieving an account based on its account id
     @Override
     public BankAccount read(Integer id) {
         try {
@@ -65,6 +66,7 @@ public class BankAccountData implements DataSourceCRUD<BankAccount> {
         return null;
     }
 
+    //here we update our database with changes made to the account, as in deposits and withdraws
     @Override
     public BankAccount update(BankAccount bankAccount) {
         try {
@@ -87,7 +89,7 @@ public class BankAccountData implements DataSourceCRUD<BankAccount> {
     public void delete(Integer id) {
 
     }
-
+//here we are retrieving all accounts that a user has in the database based on their customer id
     public CustomArrayList<BankAccount> getCustomerAccounts(Integer customerId) {
         try {
             String sql = "SELECT * FROM accounts WHERE customer_id = ?";
