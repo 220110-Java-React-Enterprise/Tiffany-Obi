@@ -160,8 +160,8 @@ public class CustomArrayList<E> implements CustomListInterface<E>,Iterable<E> {
      */
     @Override
     public boolean contains(E e) {
-       for(Object obj: array){
-           if (obj.equals(e)){
+       for (int i = 0; i < array.length; i++){
+           if(array[i]==e){
                return true;
            }
        }

@@ -31,7 +31,7 @@ public class WelcomeView extends View {
                 break;
 
             default:
-                System.out.println("Sorry invalid input!");
+                System.out.println("Sorry invalid selection!");
                 break;
         }
     }

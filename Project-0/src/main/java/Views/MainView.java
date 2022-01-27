@@ -44,8 +44,6 @@ public class MainView extends View {
                break;
             case "3":
                 CurrentUser.setTransactionType("deposit");
-                System.out.println(CurrentUser.getTransactionType());
-
                 viewManager.navigate("TransactionView");
                 break;
 

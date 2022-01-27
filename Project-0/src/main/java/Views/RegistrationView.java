@@ -26,7 +26,8 @@ public class RegistrationView extends View{
         String email = viewManager.getScanner().nextLine();
 
         if(!auth.authenticateEmail(email)){
-            System.out.println("Sorry Invalid Email");
+            System.out.println("###Sorry Invalid Email###");
+            System.out.println("==== Please enter your email ====");
             email = viewManager.getScanner().nextLine();
         }
 
@@ -37,8 +38,20 @@ public class RegistrationView extends View{
         System.out.println("=== Enter Your First Name === ");
         String firstName = viewManager.getScanner().nextLine();
 
+        if (!auth.authenticateName(firstName)){
+            System.out.println("###Save the special characters for your unique username###");
+            System.out.println("=== Enter Your First Name === ");
+            firstName = viewManager.getScanner().nextLine();
+        }
+
         System.out.println("=== Enter Your Last Name ===");
         String lastName = viewManager.getScanner().nextLine();
+
+        if (!auth.authenticateName(lastName)){
+            System.out.println("###Save the special characters for your unique username###");
+            System.out.println("=== Enter Your Last Name === ");
+            lastName = viewManager.getScanner().nextLine();
+        }
 
         System.out.println("=== Awesome! Almost Done! Choose A Unique Username===");
         String username = viewManager.getScanner().nextLine();

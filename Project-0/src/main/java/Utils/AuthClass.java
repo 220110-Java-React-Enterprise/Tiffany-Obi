@@ -24,7 +24,15 @@ public class AuthClass {
         return false;
     }
 
+    public boolean authenticateName(String name) {
+       String regex = "^([a-zA-Z]){1,40}$";
+       Pattern pattern = Pattern.compile(regex);
+       Matcher matcher = pattern.matcher(name);
 
-
+       if (matcher.matches()){
+           return true;
+       }
+    return false;
+    }
 
 }

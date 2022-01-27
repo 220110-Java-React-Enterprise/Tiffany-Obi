@@ -43,7 +43,7 @@ public class ConnectionManager {
                     props.get("password");
 //          Class.forName("org.mariadb.jdbc.Driver");
             connection = DriverManager.getConnection(connectionURL);
-            System.out.println(connectionURL);
+//            System.out.println(connectionURL);
         } catch (Exception e){
             e.printStackTrace();
         }

@@ -56,7 +56,7 @@ public class BankAccount {
     }
 
     public boolean withdraw(Float withdraw){
-        if (withdraw < checkingBalance) {
+        if (withdraw <= checkingBalance) {
             checkingBalance -= withdraw;
             return true;
             } else {

@@ -32,18 +32,27 @@ public class TransactionView extends View {
             Customer customer = CurrentUser.getCurrentUser();
 
             CustomArrayList<BankAccount> accounts = bankData.getCustomerAccounts(customer.getCustomerId());
+            CustomArrayList<Integer> accoundIds = new CustomArrayList<>();
 
             System.out.println("Choose The Account To Deposit Into");
 
             for(BankAccount account: accounts){
+                accoundIds.add(account.getAccountNumber());
                 System.out.println("Account Number: "+ account.getAccountNumber() +
                         "    Current Balance: " + "$" + String.format("%.2f",account.getCheckingBalance()));
             }
 
             System.out.println("Enter the account number");
 
+
             Integer accountNumber = viewManager.getScanner().nextInt();
             viewManager.getScanner().nextLine();
+
+            while (!accoundIds.contains(accountNumber)){
+                System.out.println("Sorry wrong account number! Please try again");
+                accountNumber = viewManager.getScanner().nextInt();
+                viewManager.getScanner().nextLine();
+            }
 
             BankAccount selectedAccount = bankData.read(accountNumber);
             System.out.println("Balance:  $" + String.format("%.2f",selectedAccount.getCheckingBalance()));
@@ -70,10 +79,12 @@ public class TransactionView extends View {
             Customer customer = CurrentUser.getCurrentUser();
 
             CustomArrayList<BankAccount> accounts = bankData.getCustomerAccounts(customer.getCustomerId());
+            CustomArrayList<Integer> accoundIds = new CustomArrayList<>();
 
             System.out.println("Choose The Account To Withdraw From");
 
             for(BankAccount account: accounts){
+                accoundIds.add(account.getAccountNumber());
                 System.out.println("Account Number: "+ account.getAccountNumber() +
                         "    Current Balance: " + "$" + String.format("%.2f",account.getCheckingBalance()));
             }
@@ -82,6 +93,12 @@ public class TransactionView extends View {
 
             Integer accountNumber = viewManager.getScanner().nextInt();
             viewManager.getScanner().nextLine();
+
+            while (!accoundIds.contains(accountNumber)){
+                System.out.println("Sorry wrong account number! Please try again");
+                accountNumber = viewManager.getScanner().nextInt();
+                viewManager.getScanner().nextLine();
+            }
 
             BankAccount selectedAccount = bankData.read(accountNumber);
             System.out.println("Balance:  $" + String.format("%.2f",selectedAccount.getCheckingBalance()));
