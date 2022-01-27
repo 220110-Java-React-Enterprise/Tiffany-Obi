@@ -92,21 +92,20 @@ public class TransactionView extends View {
 
 
 
-         if(selectedAccount.withdraw(withdraw)){
-                bankData.update(selectedAccount);
-            } else {
+         while(!selectedAccount.withdraw(withdraw)) {
+
              System.out.println("INSUFFICIENT FUNDS! Try again\n\n");
              withdraw = viewManager.getScanner().nextFloat();
              viewManager.getScanner().nextLine();
-
          }
 
+            bankData.update(selectedAccount);
             System.out.println("***********************************");
             System.out.println("************Withrawing*************");
             System.out.println("***********************************");
             System.out.println("============= S U C C E S S ===========");
+            viewManager.navigate("MainView");
 
-         viewManager.navigate("MainView");
         } else {
             System.out.println("Something is not adding up");
             viewManager.quit();

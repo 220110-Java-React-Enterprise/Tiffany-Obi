@@ -18,7 +18,7 @@ public class MainView extends View {
     @Override
     public void renderView() {
 
-        System.out.println("======= M A I N   V I E W =======");
+        System.out.println("======= M A I N   M E N U =======");
         System.out.println("  HOW CAN WE HELP YOU TODAY? ");
         System.out.println(
                         "1) Open a New Account \n" + 
@@ -55,12 +55,11 @@ public class MainView extends View {
                 break;
 
             case "5":
-                System.out.println("****************************");
+                System.out.println("***************************************");
                 System.out.println("*************Logging Out***************");
                 System.out.println("======= HAVE A GREAT DAY =======");
                 viewManager.quit();
-
-
+                    break;
             default:
                 System.out.println("Sorry invalid selection");
         }

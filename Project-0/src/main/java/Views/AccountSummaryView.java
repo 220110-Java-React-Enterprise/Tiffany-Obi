@@ -44,7 +44,7 @@ public class AccountSummaryView extends View {
                 break;
             case "2":
 
-                System.out.println("****************************");
+                System.out.println("***************************************");
                 System.out.println("*************Logging Out***************");
                 System.out.println("======= HAVE A GREAT DAY =======");
 

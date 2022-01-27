@@ -15,11 +15,13 @@ public class LoginView extends View {
         viewManager = ViewManager.getRenderer();
     }
 
+    //In this view a user is able to login
+    //with their unique username and password
+    //we then set our Current user == to user that logs in
     @Override
     public void renderView() {
         System.out.println("==== HELLO! Please enter your username ====");
         String username = viewManager.getScanner().nextLine();
-
 
         System.out.println("====Please enter your password ====");
         String password = viewManager.getScanner().nextLine();
@@ -27,10 +29,7 @@ public class LoginView extends View {
         CustomerData custData = new CustomerData();
         Customer customer = custData.checkLoginInfo(username,password);
 
-        System.out.println(customer.getCustomerId());
-
         CurrentUser.setCurrentUser(customer);
-
 
         System.out.println("===== WELCOME" + " " + customer.getFirstName().toUpperCase() + " =====");
         System.out.println("");

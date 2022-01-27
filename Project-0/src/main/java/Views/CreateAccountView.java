@@ -14,6 +14,11 @@ public class CreateAccountView extends View{
         viewManager = ViewManager.getRenderer();
     }
 
+    //In this view we are successfully
+    //creating an account for a user with or without funds
+    //and giving then the choice go to
+    //the transactionView to complete a transaction
+
     @Override
     public void renderView() {
 
@@ -23,12 +28,11 @@ public class CreateAccountView extends View{
 
         Customer currentUser = CurrentUser.getCurrentUser();
 
-        System.out.println(currentUser.getCustomerId());
 
         BankAccount newAccount = new BankAccount(currentUser.getCustomerId(),initialDeposit);
         BankAccountData accountData = new BankAccountData();
         Integer newAccountNum = accountData.create(newAccount);
-        System.out.println(newAccountNum);
+
 
         System.out.println("==== AWESOME !! YOUR ACCOUNT IS CREATED ====");
         System.out.println("****************************");
