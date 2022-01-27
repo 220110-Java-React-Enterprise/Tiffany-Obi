@@ -26,13 +26,13 @@ public class AccountSummaryView extends View {
 
         for(BankAccount account: accounts){
             System.out.println("Account Number: "+ account.getAccountNumber() +
-                    "    Current Balance: " + account.getCheckingBalance());
+                    "    Current Balance: " + String.format("%.2f",account.getCheckingBalance()));
         }
 
         System.out.println("  HOW CAN WE HELP YOU TODAY? ");
         System.out.println(
                 "1) Return to Main Menu\n"+
-                        "2)Log Out \n"
+                        "2) Log Out \n"
 
         );
 
@@ -41,7 +41,7 @@ public class AccountSummaryView extends View {
         switch (selection){
             case "1":
                 viewManager.navigate("MainView");
-
+                break;
             case "2":
 
                 System.out.println("****************************");
