@@ -10,6 +10,9 @@ import Utils.ViewManager;
 
 public class MainView extends View {
 
+
+    //here we give users different options to flow through the app
+
     public MainView(){
         viewName = "MainView";
         viewManager = ViewManager.getRenderer();

@@ -1,0 +1,21 @@
+DROP TABLE IF EXISTS accounts, customers;
+
+
+CREATE TABLE customers (
+    customer_id INT AUTO_INCREMENT,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    account_id INT ,
+    user_name VARCHAR(20) UNIQUE,
+    email VARCHAR(100),
+    password VARCHAR(20),
+    CONSTRAINT customers_pk PRIMARY KEY (customer_id),
+    CONSTRAINT account_fk FOREIGN KEY (account_id) REFERENCES accounts (account_id)
+);
+
+CREATE TABLE accounts (
+	account_id INT AUTO_INCREMENT,
+	balance DECIMAL (10,2),
+	customer_id INT NOT NULL,
+	CONSTRAINT account_pk PRIMARY KEY (account_id)
+);
